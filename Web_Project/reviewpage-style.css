@@ -1,0 +1,539 @@
+
+/*Header bar*/
+
+*{
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+section{
+    height: 10vh;
+}
+
+:root{
+    --bg-color :#131313 ;
+    --text-color: #CCCED1;
+    --main-color: #c6c60f;
+    --review-box: #2322208a;
+    --star-icon: #FFDF00;
+    --post-review: #1b1b1b;
+}
+    
+body{
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--main-color);
+    overflow-x: hidden;
+    place-content: center;
+}
+
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 28px 12%;
+    transition: all .50s ease;
+    display: flex;
+    backdrop-filter: blur(8px); /* Apply the blur effect */
+    z-index: 1; /* Place the overlay behind the header */
+
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo i{
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 3px;
+}
+
+.logo span{
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.navbar{
+    display: flex;
+}
+
+.navbar a{
+    color: var(--text-color); 
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all .50s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar a:hover{
+    color: var(--main-color);
+}
+
+
+.navbar a:after{
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    height: 3px;
+    width: 0;
+    bottom: -1px;
+    left: 0;
+    transition: 0.5s;
+}
+
+.navbar a:hover::after{
+    width: 100%;
+}
+
+
+.main{
+    display: flex;
+    align-items: center;
+    }
+
+.main i{
+    margin-right: 5px;
+}
+
+.main a{
+    margin-right: 25px;
+    margin-left: 10px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 50s ease;
+    }
+
+.main .user{
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.main .user:hover {
+    transform: translateY(-3px);
+    color: var(--main-color);
+}
+
+.main .reg {
+    transition: all 0.3s ease-in-out;
+}
+
+.main .reg:hover {
+    transform: translateY(-3px);
+    color: var(--main-color);
+}
+
+.user i{
+color: var(--main-color);
+font-size: 28px;
+margin-right: 7px;
+}
+
+.main a:hover{
+color: var(--main-color);
+}
+
+.main a:hover{
+    color: var(--main-color);
+}
+
+#menu-icon{
+    font-size: 30px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+.user{
+display: flex;
+align-items: center;
+}
+
+.user i{
+color: var(--main-color);
+font-size: 28px;
+margin-right: 7px;
+}
+
+.main a:hover{
+color: var(--main-color);
+}
+
+.main a:hover{
+    color: var(--main-color);
+}
+
+#menu-icon{
+    font-size: 35px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+@media (max-width: 1280px){
+    header{
+    padding: 14px 2%;
+    transition: .2s;
+    }
+
+    .navbar a{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+
+@media (max-width: 1090px){
+    #menu-icon{
+        display: block;
+    }
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: 29vh;
+        background: var(--main-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .50s ease;
+    }
+
+    .navbar a{
+        display: block;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all .50s ease;
+        }
+    
+    .navbar a:hover {
+        color: var(--text-color);
+        transform: translateY(5px);
+        }
+
+    .navbar a.active{
+        color: var(--text-color);
+        }
+
+    .navbar.open{
+        right: 2%;
+    }
+
+}
+
+/* ---- Post Review ---- */
+
+.mainpage {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px;
+}
+
+.postreview-container {
+    position: relative;
+    width: 700px;
+    height: 1000px;
+    background-color: var(--review-box); 
+    padding: 20px 30px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px var(--main-color);
+    
+}
+
+.postreview-container .post {
+    display: none;
+}
+
+.postreview-container .text {
+    font-size: 25px;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.postreview-container .edit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+
+.postreview-container .edit:hover {
+    text-decoration: underline;
+}
+
+
+.postreview-title {
+    width: 133px;
+    color: var(--text-color);
+    border-bottom: 5px solid var(--main-color);
+    padding: 20px;
+    font-size: 24px;
+    
+}
+
+.postreview-title:hover {
+    color: var(--main-color);
+}
+
+.star-widget input {
+    display: none;
+    
+}
+
+.star-widget label {
+    font-size: 40px;
+    color: var(--text-color);
+    padding: 10px;
+    float: right;
+    transition: all ease 0.2s;
+    
+}
+
+.star-widget input:not(:checked) ~ label:hover,
+.star-widget input:not(checked) ~ label:hover ~label {
+    color: var(--star-icon);
+}
+
+.star-widget input:checked ~ label {
+    color: var(--star-icon);
+}
+
+.star-widget input#rate-2:checked ~ label {
+    color: var(--star-icon);
+}
+
+.star-widget input#rate-3:checked ~ label {
+    color: var(--star-icon);
+}
+
+.star-widget input#rate-4:checked ~ label {
+    color: var(--star-icon);
+}
+
+.star-widget input#rate-5:checked ~ label {
+    color: var(--star-icon);
+    text-shadow: 0 0 10px var(--star-icon);
+}
+
+#rate-1:checked ~ form h1:before {
+    content: "I hate it.";
+}
+
+#rate-2:checked ~ form h1:before {
+    content: "I don't like it.";
+}
+
+#rate-3:checked ~ form h1:before {
+    content: "Not so bad.";
+}
+
+#rate-4:checked ~ form h1:before {
+    content: "I love it.";
+}
+
+#rate-5:checked ~ form h1:before {
+    content: "It is the best.";
+}
+
+.postreview-container form {
+    display: none;
+}
+
+input:checked ~ form {
+    display: block;
+}
+
+form h1 {
+    width: 100%;
+    font-size: 25px;
+    color: var(--star-icon); 
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all ease 0.2s;
+}
+
+form .textarea {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+
+form .btn {
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+form .btn button {
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--text-color);
+    outline: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+form .btn button:hover {
+    background-color: var(--post-review);
+}
+
+@media screen and (max-width:960px) {
+    .postreview-container {
+    flex: 100%;
+    max-width: 80%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .postreview-container {
+    flex: 100%;
+    max-width: 100%;
+    }
+    body {
+        height: 100%;
+    }
+}
+
+/* ---- Reviews ----- */
+
+.reviews {
+    padding: 40px 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+
+}
+
+.reviewtitle {
+    width: 170px;
+    font-size: 24px;
+}
+.reviewtitle:hover {
+    color: var(--main-color);
+}
+
+.border {
+    width: 140px;
+    height: 5px;
+    background: var(--main-color);
+    margin: 20px auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col {
+    flex: 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.reviewbox {
+    background-color: var(--review-box);
+    padding: 30px;
+    box-shadow: 2px 2px 10px var(--main-color);
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid var(--text-color);
+    transition: all ease-in-out 0.5s;
+}
+
+.reviewbox img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.stars {
+    color: var(--star-icon);
+    margin-bottom: 20px;
+}
+
+.reviewbox:hover {
+    transform: translateY(-10px);
+    
+}
+
+@media screen and (max-width:960px) {
+    .col {
+    flex: 100%;
+    max-width: 80%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .col {
+    flex: 100%;
+    max-width: 100%;
+    }
+    body {
+        height: 100%;
+    }
+}

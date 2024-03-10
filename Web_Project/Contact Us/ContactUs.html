@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Contact Us Page Design</title>
+    <link rel="stylesheet" type="text/css" href="cstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <section class="contact">
+
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p style="user-select: none;">We're not just a travel company; we're your travel companions. 
+               Get in touch, and let's embark on your next adventure together.
+               Contact us today, and let's create a travel story that's uniquely yours.</p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><ion-icon name="location-outline"></ion-icon></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>Padauk Trips' Headquarters:318 Adventure Avenue,<br>Wanderlust City, Globetrotterland,WT 54321</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><ion-icon name="call-outline"></ion-icon></div>
+                    <div class="text">
+                        <h3>HotLine</h3>
+                        <p>000-000-0000</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><ion-icon name="mail-outline"></ion-icon></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>contact@padauktrips.com</p>
+                    </div>
+                </div>
+                <h2 class="txt">Connect with us</h2>
+                <ul class="sci">
+                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+                </ul>
+            </div>
+
+            <div class="contactForm">
+                <form id="contact-form">
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="full-name" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="email" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea name="message" required="required"></textarea>
+                        <span>Type Your Message Here...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <div id="popup-container">
+        <div class="close-btn-container">
+        </div>
+        <h2>Thank You for connecting with us</h2>
+        <p>We've received your message and we'll reply within minutes.</p>
+        <div id="close-btn">
+            <span>Close</span>
+        </div>
+    </div>
+
+    <!-- Style tag start -->
+    <style type="text/css">
+        #popup-container {
+            position: absolute;
+            left: 25%;
+            top: 60%;
+            width: 45%;
+            padding: 20px;
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px black;
+            display: none;
+            z-index: 99999;
+            background: -webkit-linear-gradient(to right, black, yellow);
+            background: linear-gradient(to right, black, yellow);
+            text-align: center;
+            color: white;
+            border-radius: 20px;
+        }
+
+        #close-btn {
+            text-align: center;
+            padding: 13px 40px;
+            transition: all 0.5s ease;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        #close-btn:hover {
+            transform: translateX(10px);
+            background: transparent;
+            color: yellow;
+        }
+    </style>
+    <!-- Style tag end -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add a submit event listener to the form
+            $("#contact-form").submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting
+
+                // Check if the required inputs are filled
+                var fullName = $("input[name='full-name']").val();
+                var email = $("input[name='email']").val();
+                var message = $("textarea[name='message']").val();
+
+                if (fullName !== "" && email !== "" && message !== "") {
+                    // Show the popup if all required inputs are filled
+                    $("#popup-container").fadeIn("medium");
+                }
+            });
+
+            $("#close-btn").click(function(){
+                $("#popup-container").fadeOut("medium");
+            });
+        });
+    </script>
+
+</body>
+</html>

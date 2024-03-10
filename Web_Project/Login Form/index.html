@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padauk Trip login</title>
+    <link rel="stylesheet" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/s/boxicons.min.css">
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="main.js" async></script>
+</head>
+<body>
+
+<div class="capt"><i class="ri-ancient-pavilion-fill" style="color: yellow;"></i>&nbsp; Padauk Trips</div>
+<div class="backbutton"><a href="../home.html"><i class="ri-home-5-line"></i></a></div>
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="https://www.facebook.com/" target="_blank" class="social"><img src="Icons/facebook-fill.png" alt="Fac"></a>
+				<a href="https://shorturl.at/yBLR7 " target="_blank" class="social"><img src="Icons/google-fill.png" alt="Google"></a>
+				<a href="https://www.linkedin.com/signup" target="_blank" class="social"><img src="Icons/linkedin-fill.png" alt="LinkedIn"></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="text" id="name" placeholder="Name" required />
+			<input type="email" id="email" placeholder="Email" required />
+			<input type="password" id="password" placeholder="Password" required />
+			<button id="sign-up">Sign Up</button>
+		</form> 
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="https://www.facebook.com/" target="_blank" class="social"><img src="Icons/facebook-fill.png" alt="Fac"></a>
+				<a href="https://shorturl.at/yBLR7 " target="_blank" class="social"><img src="Icons/google-fill.png" alt="Google"></a>
+				<a href="https://www.linkedin.com/signup" target="_blank" class="social"><img src="Icons/linkedin-fill.png" alt="LinkedIn"></a>
+			</div>
+			<span>or use your account</span>
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<a href="#">Forgot your password?</a>
+			<!-- <a href="../logout.html" class="sign-in-btn">Sign In</a> -->
+			<button id="sign-in-btn">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="popup-container">
+	<div class="close-btn-container">
+	</div>
+	<h2>Thank You</h2>
+	<p>You have successfully signed up to Padauk Trip</p>
+	<div id="close-btn">
+		<span>Close</span>
+	</div>
+</div>
+
+<style type="text/css">
+	#popup-container{
+		position: absolute;
+		left: 25%;
+		top: 10%;
+		width: 45%;
+		padding: 20px;
+		border: 1px solid black;
+		box-shadow: 0px 0px 10px black;
+		display: none;
+		z-index: 99999;
+		background: -webkit-linear-gradient(to right, black, yellow);
+		background: linear-gradient(to right, black,  yellow);
+		text-align: center;
+		color: white;
+		border-radius: 20px;
+
+	}
+	#close-btn{
+		text-align: center;
+		padding: 13px 40px;
+		transition: all 0.5s ease;
+		border-radius: 5px;
+		border: 2px solid transparent;
+		font-weight: 600;
+		font-size: 15px;
+		cursor: pointer;
+	}
+
+	#close:hover {
+    	transform: translateX(10px);
+    	border: 2px solid yellow;
+    	background: transparent;
+    	color: yellow;
+	}
+
+</style>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // Show popup when Sign Up form is submitted
+    $("#container .sign-up-container form").submit(function(e) {
+        e.preventDefault(); // Prevent the form from submitting
+        if ($("#name").val() !== "" && $("#email").val() !== "" && $("#password").val() !== "") {
+            $("#popup-container").fadeIn("medium");
+        }
+    });
+
+    // Check if email and password fields are not empty when Sign In form is submitted
+    $("#container .sign-in-container form").submit(function(e) {
+        if ($("#container .sign-in-container input[type='email']").val() === "" ||
+            $("#container .sign-in-container input[type='password']").val() === "") {
+            e.preventDefault(); // Prevent the form from submitting if fields are empty
+            alert("Please fill in both email and password fields to sign in.");
+        }
+    });
+
+    // Handle Sign In button click
+    $("#sign-in-btn").click(function(e) {
+        // Check if email and password fields are not empty
+        if ($("#container .sign-in-container input[type='email']").val() === "" ||
+            $("#container .sign-in-container input[type='password']").val() === "") {
+            e.preventDefault(); // Prevent navigation if fields are empty
+            alert("Please fill in both email and password fields to sign in.");
+        } else {
+            // Perform navigation to another page
+            window.location.href = "../logout.html";
+        }
+    });
+});
+
+
+	$("#close-btn").click(function() {
+        $("#popup-container").fadeOut("medium");
+    });
+
+</script>
+</body>
+</html>
